@@ -375,10 +375,10 @@ void ofxUITabbedCanvas::onTabChanged(ofxUIEventArgs &e)
         ofxUIToggle *t = static_cast<ofxUIToggle *>(e.widget);
         if (t->getValue()) {
             /// get current active tab index from ofxUIToggleMatrix column at 0
-            cout << name << endl;
+            //cout << name << endl;
             vector<string> values = ofSplitString(name, ",");
             if (values.size()>1) {
-                cout << values.at(0).at(1) << endl;
+                //cout << values.at(0).at(1) << endl;
                 /// remove '(' and ')'
                 const int tabIndex = atoi(&values.at(0).at(1));
                 select(tabIndex);
