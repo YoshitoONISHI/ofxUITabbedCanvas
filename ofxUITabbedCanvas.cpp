@@ -92,6 +92,14 @@ void ofxUITabbedCanvas::draw()
         /// draw draggable toolbar
         ofPushStyle();
         ofPushMatrix();
+        ofFill();
+        ofSetColor(getColorBack());
+        ofRect(mDraggableRect);
+        ofRect(mDraggableRect.x,
+               mDraggableRect.y+mDraggableRect.height,
+               mDraggableRect.width,
+               mTabButtonSize);
+        
         ofNoFill();
         (mMouseState==MOUSE_IDLE) ?
         ofSetColor(getColorOutline()) : ofSetColor(getColorOutlineHighlight());
@@ -399,6 +407,7 @@ void ofxUITabbedCanvas::rebuildTabs()
     mTabs = new ofxUICanvas(0.0f, 0.0f, mTabSize.width, mTabSize.height*2.0f);
     mTabs->setWidgetSpacing(mTabSpacing);
     mTabs->setFont(mFontFile, false);
+    mTabs->setDrawBack(false);
     super::addWidget(mTabs);
     
     if (!mCanvases.empty()) {
